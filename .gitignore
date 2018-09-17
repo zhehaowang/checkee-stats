@@ -105,3 +105,4 @@ venv.bak/
 
 # data
 src/retriever/data/*.txt
+*.log
