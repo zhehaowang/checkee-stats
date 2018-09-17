@@ -39,7 +39,7 @@ if __name__ == "__main__":
     data = parse_data('../retriever/data/')
     
     visa_type = 'h1'
-    location = 'shanghai'
+    location = 'beijing'
     status = 'clear'
     new_renewal = 'new'
     since = '2018-02-01'
@@ -52,7 +52,12 @@ if __name__ == "__main__":
                            since = since,
                            fields = [(lambda x:int(x), 'waiting_days')])
 
+    if len(filtered) == 0:
+        print('Nothing filtered')
+        exit(0)
+    
     print('Total ' + str(len(filtered)) + ' samples filtered')
+    print('Average waiting days: ' + str(sum(filtered) / float(len(filtered))))
 
     step = 2
     bins = np.arange(0, max(filtered) + step, step = step)
