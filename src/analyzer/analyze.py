@@ -39,7 +39,7 @@ if __name__ == "__main__":
     data = parse_data('../retriever/data/')
     
     visa_type = 'h1'
-    location = 'beijing'
+    location = 'shanghai'
     status = 'clear'
     new_renewal = 'new'
     since = '2018-02-01'
@@ -57,12 +57,11 @@ if __name__ == "__main__":
     step = 2
     bins = np.arange(0, max(filtered) + step, step = step)
     plt.hist(filtered, bins = bins)
-    plt.title("Histogram for " + visa_type +
-              " visa at " + location +
-              " consulate " + status +
-              " since " + since)
+    title = "Histogram for " + visa_type + " visa at " + location + " consulate " + status + " since " + since
+    plt.title(title)
     plt.xlabel("number of days in waiting")
     plt.ylabel("number of applications")
     plt.xticks(bins)
 
+    print(title)
     plt.show()
